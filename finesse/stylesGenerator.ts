@@ -18,10 +18,13 @@ const getClassName = (style: any): string => {
 const convertSingleStyleToClassName = (style: [string, any]): string => {
   const [key, value] = style;
 
-  if (typeof value === 'string') {
-    const className = getClassName(style);
+  if (!Boolean(value)) return '';
 
-    setGet(className, `${key}: ${value};`, classNamesStylesMap);
+  if (typeof value !== 'object') {
+    const className = getClassName(style);
+    const property = key.split(':').shift();
+
+    setGet(className, `${property}: ${value};`, classNamesStylesMap);
     return className;
   } else {
     const [subKey, subValue] = Object.entries(value)[0];
@@ -33,7 +36,7 @@ const convertSingleStyleToClassName = (style: [string, any]): string => {
 };
 
 export const createStyle = (styles: Record<string, any>): string => {
-  // console.log('Object.entries(styles)', Object.entries(styles));
+  console.log('createStyle > Object.entries(styles)', Object.entries(styles));
 
   return Object.entries(styles).map(convertSingleStyleToClassName).join(' ');
 };

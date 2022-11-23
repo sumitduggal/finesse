@@ -1,7 +1,7 @@
 import { classNamesStylesMap, createStyle } from './finesse';
 
 const singleLevelStyles = {
-  random: '',
+  color: 'green',
   background: 'red',
 };
 
@@ -17,8 +17,8 @@ const doubleNestedStyles = {
   },
 };
 
-console.log(singleLevelStyles, createStyle(singleLevelStyles));
-console.log(nestedStyles, createStyle(nestedStyles));
-// console.log(doubleNestedStyles, createStyle(doubleNestedStyles));
+console.log('   ', singleLevelStyles, createStyle(singleLevelStyles));
+console.log('     ', nestedStyles, createStyle(nestedStyles));
+console.log('     ', doubleNestedStyles, createStyle(doubleNestedStyles));
 
 console.log([...classNamesStylesMap]);

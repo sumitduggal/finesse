@@ -1,1 +1,1 @@
-export { classNamesStylesMap, createStyle } from './stylesGenerator';
+export { classnameStylesMap, createStyle } from "./stylesGenerator";

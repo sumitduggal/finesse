@@ -1,24 +1,26 @@
-import { classNamesStylesMap, createStyle } from './finesse';
+import { classnameStylesMap, createStyle } from "./finesse";
 
 const singleLevelStyles = {
-  color: 'green',
-  background: 'red',
+  color: "green",
+  background: "red",
 };
 
 const nestedStyles = {
-  background: 'red',
+  background: {
+    mobile: "red",
+  },
 };
 
 const doubleNestedStyles = {
   background: {
     mobile: {
-      dark: 'red',
+      dark: "red",
     },
   },
 };
 
-console.log('   ', singleLevelStyles, createStyle(singleLevelStyles));
-console.log('     ', nestedStyles, createStyle(nestedStyles));
-console.log('     ', doubleNestedStyles, createStyle(doubleNestedStyles));
+console.log("   ", singleLevelStyles, createStyle(singleLevelStyles));
+console.log("     ", nestedStyles, createStyle(nestedStyles));
+console.log("     ", doubleNestedStyles, createStyle(doubleNestedStyles));
 
-console.log([...classNamesStylesMap]);
+console.log([...classnameStylesMap]);

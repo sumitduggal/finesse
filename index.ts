@@ -6,21 +6,45 @@ const singleLevelStyles = {
 };
 
 const nestedStyles = {
-  background: {
-    mobile: "red",
+  background: "red",
+
+  mobile: {
+    background: "red",
   },
 };
 
 const doubleNestedStyles = {
-  background: {
-    mobile: {
-      dark: "red",
+  background: "blue",
+
+  mobile: {
+    background: "red",
+
+    dark: {
+      background: "red",
+      color: "green",
     },
   },
 };
 
-console.log("   ", singleLevelStyles, createStyle(singleLevelStyles));
-console.log("     ", nestedStyles, createStyle(nestedStyles));
-console.log("     ", doubleNestedStyles, createStyle(doubleNestedStyles));
+createStyle(singleLevelStyles);
+console.log("--- --- ---");
+
+createStyle(nestedStyles);
+console.log("--- --- ---");
+
+createStyle(doubleNestedStyles);
+console.log("--- --- ---");
+
+const logNested = (maybeNestedArray: any[]) => {
+  maybeNestedArray.map((item) => {
+    const [key, value] = item;
+    if (typeof value === "object") {
+      logNested([...value]);
+    } else {
+      console.log(key, value);
+    }
+  });
+};
 
 console.log([...classnameStylesMap]);
+logNested([...classnameStylesMap]);

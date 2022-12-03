@@ -19,7 +19,7 @@ const convertStyleToClassname = (style: any): string => {
   );
 };
 
-const convertSingleStyleToClassName = (style: [string, any]): string => {
+export const convertSingleStyleToClassName = (style: [string, any]): string => {
   const [key, value] = style;
 
   if (!Boolean(value)) return "";
